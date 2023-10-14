@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./parts/header')%>
+    <title>Orders Page</title>
+  </head>
+  <body>
+    <%- include('./parts/navbar')%>
+    <div class="cartContainer">
+      <%if(cartItems.length===0){%>
+       <div class="alert alert-danger" role="alert">
+         There is no Items in Your cart . back <a href="/" class="alert-link">Home</a>. Give it a click if you want.
+       </div>
+       <%}else{%>
+         <table class="ordering-table">
+           <thead>
+             <td>No</td>
+             <td> Name</td>
+             <td>Price</td>
+             <td>Quantity</td>
+             <td>Total</td>
+             <td>status</td>
+             <td>Actions</td>
+           </thead>
+           <tbody>
+             <%for(let i=0 ; i<cartItems.length ; i++){%>
+               <tr>
+                 <td><%=i+1%></td>
+                
+                 <td>
+                   <a href="product/<%=cartItems[i].productId%>"><%=cartItems[i].name%></a>
+                   
+                 </td>
+               
+                 <td><%=cartItems[i].price%></td>
+                 <form method="POST">
+                   <td><input type="text" name="quantity" class="form-control" value="<%=cartItems[i].quantity%>" readonly disabled></td>
+                   <td><%=cartItems[i].price*cartItems[i].quantity%></td>
+                   <td class="<%=cartItems[i].status%>"><%=cartItems[i].status%></td>
+                   <td>
+                     <input type="hidden" name="cartId" value="<%=cartItems[i]._id%>">
+                     <input type="submit" class="btn btn-secondary" value="Un Order" formaction="/orders/unOrder">
+                   </td>
+                 </form>
+               </tr>
+             <%}%>
+           </tbody>
+         </table>
+       <%}%>
+     </div>
+   
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

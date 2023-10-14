@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+  <%- include('./parts/header')%>
+    <title>login</title>
+</head>
+<body>
+    <%- include('./parts/navbar')%>
+
+    <%if(quantityError){%>
+      <div class="alert alert-danger" role="alert">
+        <%=quantityError.msg%>
+      </div>
+      <%}%>
+    <div class="cartContainer">
+   <%if(cartItems.length===0){%>
+    <div class="alert alert-danger" role="alert">
+      There is no Items in Your cart . back <a href="/" class="alert-link">Home</a><br>
+      or maybe you kave <a href="/orders" class="alert-link">Orders</a> click to get'em
+    </div>
+    <%}else{%>
+      <table class="cart-table">
+        <thead>
+          <td>No</td>
+          <td> Name</td>
+          <td>Price</td>
+          <td>Quantity</td>
+          <td>Total</td>
+          <td>status</td>
+          <td>Actions of Cart</td>
+        </thead>
+        <tbody>
+          <%for(let i=0 ; i<cartItems.length ; i++){%>
+            <tr>
+              <td><%=i+1%></td>
+             
+              <td>
+                <a href="product/<%=cartItems[i].productId%>"><%=cartItems[i].name%></a>
+                
+              </td>
+            
+              <td><%=cartItems[i].price%></td>
+              <form method="POST">
+                <td><input type="text" name="quantity" class="form-control" value="<%=cartItems[i].quantity%>"></td>
+                <td><%=cartItems[i].price*cartItems[i].quantity%></td>
+                <td class="<%=cartItems[i].status%>"><%=cartItems[i].status%></td>
+                <td>
+                  <input type="hidden" name="cartId" value="<%=cartItems[i]._id%>">
+                  <input type="submit" class="btn btn-outline-success" value="Update" formaction="/cart/save">
+                  <input type="submit" class="btn btn-secondary" value="Order" formaction="/cart/addToOrders">
+                  <input type="submit" class="btn btn-danger" value="Delete" formaction="/cart/delete">
+                </td>
+              </form>
+            </tr>
+          <%}%>
+        </tbody>
+      </table>
+    <%}%>
+  </div>
+
+
+</body>
+</html>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>

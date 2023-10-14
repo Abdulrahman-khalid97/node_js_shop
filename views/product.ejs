@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./parts/header')%>
+    <link rel="stylesheet" href="/css/SignleProduct.css">
+  <title>product</title>
+  <style>
+ 
+  </style>
+</head>
+<body>
+  <%- include('./parts/navbar')%>
+
+ 
+  <div class="container">
+    <div class="row">
+      <div class="left">
+        <div class="mainData">
+          <img src="/<%= product.image%>" class="image">
+          <h2><%= product.name%></h2>
+          <h3><%= product.price%>$</h3>
+        </div>
+      </div>
+      <div class="right">
+        <div class="details">
+          <p><%=product.description%></p>
+          <form action="/cart" class="inputCount" method="POST">
+            <div class="input-group mb-3">
+              <span class="input-group-text">$</span>
+              <span class="input-group-text">0.00</span>
+              <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+            </div>
+            <input type="submit" value="Add to cart" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>

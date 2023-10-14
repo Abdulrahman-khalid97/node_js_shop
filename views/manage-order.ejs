@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./parts/header')%>
+    <title>Manage Order</title>
+  </head>
+  <body>
+    <%- include('./parts/navbar')%>
+  
+    <h2 style="text-align: center;">Orders</h2>
+    <%if(orderItems.length===0){%>
+      <div class="alert alert-danger" style="width: 50%; margin: 1rem auto;" role="alert">
+        There is no Items have ordered
+      </div>
+      <%}else{%>
+    
+    <div class="cartContainer">
+         <table class="ordering-table">
+           <thead>
+             <td>No</td>
+             <td> Name</td>
+             <td> email</td>
+             <td>Price</td>
+             <td>Quantity</td>
+             <td>Total</td>
+             <td>status</td>
+             <td>Actions</td>
+           </thead>
+           <tbody>
+             <%for(let i=0 ; i<orderItems.length ; i++){%>
+               <tr>
+                 <td><%=i+1%></td>
+                
+                 <td>
+                   <a href="../product/<%=orderItems[i].productId%>"><%=orderItems[i].name%></a>
+                   
+                 </td>
+               <td>
+                <%for(let j=0 ; j<users.length;j++){%>
+                  <%if(users[j]._id==orderItems[i].userId){%>
+                   <%=users[j].email%>
+                    <%break;%>
+                    <%}%>
+                  <%}%>
+               </td>
+                 <td><%=orderItems[i].price%></td>
+                 <form method="POST">
+                   <td><input type="text" name="quantity" class="form-control" value="<%=orderItems[i].quantity%>" readonly disabled></td>
+                   <td><%=orderItems[i].price*orderItems[i].quantity%></td>
+                   <td class="<%=orderItems[i].status%>"><%=orderItems[i].status%></td>
+                   <td>
+                     <input type="hidden" name="cartId" value="<%=orderItems[i]._id%>">
+                     <input type="submit" class="btn btn-warning" value="Sent" formaction="/admin/sent">
+                   </td>
+                 </form>
+               </tr>
+             <%}%>
+           </tbody>
+         </table>
+       <%}%>
+     </div>
+     <h2 style="text-align: center;">Orders which have sent them</h2>
+     <%if(sentItems.length===0){%>
+      <div class="alert alert-danger" style="width: 50%; margin: 1rem auto;" role="alert">
+        There is no Items to send them
+      </div>
+      <%}else{%>
+     
+     <div class="cartContainer">
+      
+         <table class="ordering-table">
+           <thead>
+             <td>No</td>
+             <td> Name</td>
+             <td> email</td>
+             <td>Price</td>
+             <td>Quantity</td>
+             <td>Total</td>
+             <td>status</td>
+             <td>Actions</td>
+           </thead>
+           <tbody>
+             <%for(let i=0 ; i<sentItems.length ; i++){%>
+               <tr>
+                 <td><%=i+1%></td>
+
+                 <td>
+                   <a href="../product/<%=sentItems[i].productId%>"><%=sentItems[i].name%></a>
+                   
+                 </td>
+               <td>
+                <%for(let j=0 ; j<users.length;j++){%>
+                  <%if(users[j]._id==sentItems[i].userId){%>
+                   <%=users[j].email%>
+                    <%break;%>
+                    <%}%>
+                  <%}%>
+               </td>
+                 <td><%=sentItems[i].price%></td>
+                 <form method="POST">
+                   <td><input type="text" name="quantity" class="form-control" value="<%=sentItems[i].quantity%>" readonly disabled></td>
+                   <td><%=sentItems[i].price*sentItems[i].quantity%></td>
+                   <td class="<%=sentItems[i].status%>"><%=sentItems[i].status%></td>
+                   <td>
+                     <input type="hidden" name="cartId" value="<%=sentItems[i]._id%>">
+                     <input type="submit" class="btn btn-success" value="Complate" formaction="/admin/complate">
+                   </td>
+                 </form>
+               </tr>
+             <%}%>
+           </tbody>
+         </table>
+       <%}%>
+     </div>
+
+     <h2 style="text-align: center;">Orders which have sent them</h2>
+     <%if(complateItems.length===0){%>
+      <div class="alert alert-danger" style="width: 50%; margin: 1rem auto;" role="alert">
+        There is no Items for complate
+      </div>
+      <%}else{%>
+     <div class="cartContainer">
+      
+         <table class="ordering-table  complate">
+           <thead>
+             <td>No</td>
+             <td> Name</td>
+             <td> email</td>
+             <td>Price</td>
+             <td>Quantity</td>
+             <td>Total</td>
+             <td>status</td>
+             <td>Actions</td>
+           </thead>
+           <tbody>
+             <%for(let i=0 ; i<complateItems.length ; i++){%>
+               <tr>
+                 <td><%=i+1%></td>
+
+                 <td>
+                   <a href="../product/<%=complateItems[i].productId%>"><%=complateItems[i].name%></a>
+                   
+                 </td>
+               <td>
+                <%for(let j=0 ; j<users.length;j++){%>
+                  <%if(users[j]._id==complateItems[i].userId){%>
+                   <%=users[j].email%>
+                    <%break;%>
+                    <%}%>
+                  <%}%>
+               </td>
+                 <td><%=complateItems[i].price%></td>
+                 <form method="POST">
+                   <td><input type="text" name="quantity" class="form-control" value="<%=complateItems[i].quantity%>" readonly disabled></td>
+                   <td><%=complateItems[i].price*complateItems[i].quantity%></td>
+                   <td class="<%=complateItems[i].status%>"><%=complateItems[i].status%></td>
+                   <td>
+                     <input type="hidden" name="cartId" value="<%=complateItems[i]._id%>">
+                 
+                   </td>
+                 </form>
+               </tr>
+             <%}%>
+           </tbody>
+         </table>
+       <%}%>
+     </div>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+  <%- include('./parts/header')%>
+  
+    <title>signUp</title>
+</head>
+<body>
+    <%- include('./parts/navbar')%>
+    <div class="signing text-center">
+        <div class="content">
+        <h1 class="title">Sign Up</h1>
+        <form action="/signup" method="POST" class="formSigin">
+            <input type="text" class="form-controler" name="username" placeholder="Username">
+            <%let usernameError= validationErrors.find(err=>err.path ==='username')%>
+            <%if(usernameError){%>
+                    <span class="error">*<%=usernameError.msg%></span>
+                <%}%>
+            <input type="email" class="form-controler" name="email" placeholder="Email">
+            <%let emailError= validationErrors.find(err=>err.path ==='email')%>
+            <%if(emailError){%>
+                    <span class="error">*<%=emailError.msg%></span>
+                <%}%>
+            <input type="password" class="form-controler" name="password" placeholder="Password">
+            <%let passwordError= validationErrors.find(err=>err.path ==='password')%>
+            <%if(passwordError){%>
+                    <span class="error">*<%=passwordError.msg%></span>
+                <%}%>
+            <input type="password" class="form-controler" name="confirmPassword" placeholder="Confirm Password">
+            <%let conPasswordError= validationErrors.find(err=>err.path ==='confirmPassword')%>
+            <%if(conPasswordError){%>
+                    <span class="error">*<%=conPasswordError.msg%></span>
+                <%}%>
+            <button type="submit"  class="btn btn-outline-success">create account</button>
+        </form>
+        <br>
+        <div style="color: #fff;">
+            Aleady have an account ? <a href="/login">login</a>
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>

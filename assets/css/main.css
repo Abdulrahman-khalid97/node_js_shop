@@ -1,0 +1,156 @@
+
+.filter{
+    display: flex;
+    margin: 10px auto;
+    padding: 0.4rem 2.7rem; 
+    border: none;
+    border-radius: 0.5rem;
+    border-color: #e4e4e4;
+    /* background-color: ; */
+}
+
+
+.signing{
+    display: flex;
+    height:90vh;
+    background-color: #2f1f2b;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.signing .title{
+    color: #ffffff;
+}
+.center-card-button{
+
+    margin: 0px auto;
+}
+
+.content{
+    background-color: #e4e4e411;
+    padding: 2rem;
+    display: flex;
+    width: 30rem;
+    flex-direction: column;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 8px  #888888;
+   
+}
+.inputCount{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.formSigin{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.formSigin input{
+    margin: 0.5rem;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.3rem;
+}
+
+.error{
+    color: red;
+    font-size: 0.9rem;
+    text-align: start;
+    padding: 0px 1rem;
+    
+}
+.cartContainer{
+    display: flex;
+    height: 100%;
+    margin-top: 4rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+.cart-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.cart-table thead tr {
+    background-color: #2f1f2b;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+.cart-table th,
+.cart-table td {
+    padding: 12px 15px;
+}
+
+.cart-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+ 
+}
+
+.cart-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.addProduct-form{
+    width:50rem;
+    margin: 5rem auto;
+    align-items: center;
+
+}
+.order{
+    color: #009879;
+    font-weight: bold;
+    text-decoration: underline;
+    letter-spacing: 0.05rem;
+}
+.pending{
+    color: crimson;
+    text-decoration: underline;
+}
+
+
+.ordering-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.ordering-table thead tr {
+    background-color: #444444;
+    color: #ffffff;
+    text-align: left;
+}
+
+.ordering-table th,
+.ordering-table td {
+    padding: 12px 15px;
+}
+
+.ordering-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+ 
+}
+
+.ordering-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}

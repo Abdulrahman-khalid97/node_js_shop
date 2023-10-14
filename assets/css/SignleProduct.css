@@ -1,0 +1,43 @@
+
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height:calc(90vh);
+}
+.image{
+    width: 500px;
+    height: 500px;
+    margin: 5rem auto;
+}
+.container .row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;  
+   
+}
+
+.inputCount{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+
+.right .details{
+    display: flex;
+    flex-direction: column;
+    margin: 10rem auto;
+
+}
+.mainData{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 100px;
+    padding: 8px 5px;
+}

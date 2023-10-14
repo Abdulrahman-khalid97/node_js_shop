@@ -1,0 +1,23 @@
+ // adding with model
+    // cartModel
+    //   .addNewItem({
+    //     name: req.body.name,
+    //     price: req.body.price,
+    //     quantity: req.body.quantity,
+    //     productId: req.body.productId,
+    //     userId: req.session.userId,
+    //     timeStamp: Date.now(),
+    //   })
+    //   .then(() => {
+    //     console.log("cart");
+    //     res.redirect("/cart");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     res.redirect("/");
+    //   });
+  // } 
+  // exports.addNewItem = (data) => {
+//   return new Promise((resolve, reject) => {
+//     );
+// };

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./parts/header')%>
+    <title>Add Product</title>
+  </head>
+  <body>
+    <%- include('./parts/navbar')%>
+  
+
+   <h3 style="display: block; margin: 10px 0px 0px 0px; text-align: center;">Add Products</h3>
+    <form class="addProduct-form" action="/admin/add" enctype="multipart/form-data" method="POSt">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" name="description" id="description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select name="category" class="form-select form-select-sm" aria-label="Small select example" style="padding: 0; width: 50%;height: 2rem; margin: 0;">
+          <option selected value="unOrgnized">Unorgized</option>
+          <option value="watch">watch</option>
+          <option value="headphones">Head Phones</option>
+          <option value="camera">Camera</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">price</label>
+        <input type="number" class="form-control" name="price" id="price">
+      </div>
+      <div>
+        <label for="formFileLg" class="form-label">Image</label>
+        <input class="form-control form-control-lg" name="image" id="formFileLg" type="file">
+        <%let imageError= validationErrors.find(err=>err.path ==='image')%>
+        <%if(imageError){%>
+          <span class="error">*
+            <%=imageError.msg%>
+          </span>
+          <%}%>
+      </div>
+      <br>
+      <br>
+   
+    
+    
+      <button type="submit" class="btn btn-secondary">Add Product</button>
+    </form>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

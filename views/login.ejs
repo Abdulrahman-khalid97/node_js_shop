@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+  <%- include('./parts/header')%>
+    <title>login</title>
+</head>
+<body>
+    <%- include('./parts/navbar')%>
+
+  
+    <div class="signing text-center">
+        <div class="content">
+        <h1 class="title">Login</h1>
+        <form action="/login" method="POST" class="formSigin">
+            <input type="email" class="form-controler" name="email" placeholder="Email">
+            <%let emailError= validationErrors.find(err=>err.path ==='email')%>
+            <%if(emailError){%>
+                    <span class="error">*<%=emailError.msg%></span>
+                <%}%>
+            <input type="password" class="form-controler" name="password" placeholder="Password">
+            <%let passwordError= validationErrors.find(err=>err.path ==='password')%>
+            <%if(passwordError){%>class="error">*
+                    <span <%=passwordError.msg%></span>
+                <%}%>
+            <button type="submit" class="btn  btn-outline-warning">login</button>
+
+        </form>
+        <%if(authError!=''){%>
+            <div class="alert alert-danger" role="alert">
+                <%=authError%>
+              </div>
+    
+        <%}%>
+        <br>
+        <div style="color: #fff;" >
+            create new account ? <a href="/signup">SignUp</a>
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
